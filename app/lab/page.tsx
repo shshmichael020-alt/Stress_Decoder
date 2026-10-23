@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { AggregateResearchData, FactorKey } from "@/lib/types";
 import { VennDiagram, VennRegionKey } from "@/components/venn-diagram";
+import { fetchResearchAggregate } from "@/lib/storage";
 
 export default function ResearchLabPage() {
   const [data, setData] = useState<AggregateResearchData | null>(null);
@@ -32,11 +33,8 @@ export default function ResearchLabPage() {
   const loadData = async (mode: 'demo' | 'live') => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/research-aggregate?mode=${mode}`);
-      const json = await res.json();
-      if (json.success && json.data) {
-        setData(json.data);
-      }
+      const aggData = await fetchResearchAggregate(mode);
+      setData(aggData);
     } catch (e) {
       console.error("Failed to load aggregate research data", e);
     } finally {

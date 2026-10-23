@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Printer,
-  Download,
   FileSpreadsheet,
-  FileText,
   ArrowLeft,
-  CheckCircle2,
-  Info,
-  Calendar,
   Layers,
   Binary,
-  TrendingUp,
 } from "lucide-react";
 import { AggregateResearchData } from "@/lib/types";
+import {
+  fetchResearchAggregate,
+  generateAggregateCSV,
+  generateVennRegionsCSV,
+  generateTruthTableCSV,
+} from "@/lib/storage";
 import { toast } from "sonner";
 
 export default function ReportPage() {
@@ -23,13 +23,8 @@ export default function ReportPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/research-aggregate?mode=demo")
-      .then((r) => r.json())
-      .then((json) => {
-        if (json.success && json.data) {
-          setData(json.data);
-        }
-      })
+    fetchResearchAggregate("demo")
+      .then((d) => setData(d))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));
   }, []);
@@ -40,13 +35,21 @@ export default function ReportPage() {
 
   const downloadCSV = (type: "aggregate" | "venn" | "truth_table") => {
     try {
-      const url = `/api/export?type=${type}`;
+      if (!data) return;
+      let csvContent = "";
+      if (type === "venn") csvContent = generateVennRegionsCSV(data);
+      else if (type === "truth_table") csvContent = generateTruthTableCSV(data);
+      else csvContent = generateAggregateCSV(data);
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
       a.download = `stress_triangle_${type}_${Date.now()}.csv`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      URL.revokeObjectURL(url);
       toast.success(`Exported ${type.replace("_", " ")} CSV successfully.`);
     } catch (e) {
       toast.error("Failed to generate CSV export.");
@@ -113,9 +116,7 @@ export default function ReportPage() {
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* PRINTABLE DOCUMENT BODY                                                   */}
-        {/* ========================================================================= */}
+        {/* PRINTABLE DOCUMENT BODY */}
         <div className="print-page border border-[#c5c5d9] p-8 sm:p-12 space-y-8 rounded-xl bg-white shadow-sm">
           {/* Header */}
           <div className="border-b-2 border-[#1d182e] pb-6 space-y-2">
@@ -150,17 +151,17 @@ export default function ReportPage() {
               <div className="border p-2.5 rounded">
                 <div className="text-[#444656]">Set P (Procrastinate)</div>
                 <div className="font-bold text-sm text-[#1e39e7] mt-1">{v.sizeP} students</div>
-                <div className="text-[11px] text-[#757688]">{((v.sizeP / data.sampleSize) * 100).toFixed(1)}%</div>
+                <div className="text-[11px] text-[#757688]">{((v.sizeP / Math.max(1, data.sampleSize)) * 100).toFixed(1)}%</div>
               </div>
               <div className="border p-2.5 rounded">
                 <div className="text-[#444656]">Set S (Sleep Loss)</div>
                 <div className="font-bold text-sm text-[#aa3526] mt-1">{v.sizeS} students</div>
-                <div className="text-[11px] text-[#757688]">{((v.sizeS / data.sampleSize) * 100).toFixed(1)}%</div>
+                <div className="text-[11px] text-[#757688]">{((v.sizeS / Math.max(1, data.sampleSize)) * 100).toFixed(1)}%</div>
               </div>
               <div className="border p-2.5 rounded">
                 <div className="text-[#444656]">Set F (Social Peer)</div>
                 <div className="font-bold text-sm text-[#485b00] mt-1">{v.sizeF} students</div>
-                <div className="text-[11px] text-[#757688]">{((v.sizeF / data.sampleSize) * 100).toFixed(1)}%</div>
+                <div className="text-[11px] text-[#757688]">{((v.sizeF / Math.max(1, data.sampleSize)) * 100).toFixed(1)}%</div>
               </div>
               <div className="border p-2.5 rounded bg-[#f2ebff]">
                 <div className="text-[#444656]">Set E (Stress ≥ 4)</div>

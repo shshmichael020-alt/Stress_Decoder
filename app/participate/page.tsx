@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { FactorKey, AnswerValue, QuestionnaireAnswers, ParticipantPrediction } from "@/lib/types";
 import { SCORE_OPTIONS, SURVEY_ROUNDS, BELIEF_QUESTIONS } from "@/lib/questions";
+import { submitResearchData } from "@/lib/storage";
 import { toast } from "sonner";
 
 type FlowStep = 'prediction' | 'consent' | 'survey' | 'beliefs' | 'submitting';
@@ -183,19 +184,13 @@ export default function ParticipatePage() {
     };
 
     try {
-      const res = await fetch('/api/submissions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          prediction,
-          answers,
-          consent: consentGiven,
-        }),
+      const result = await submitResearchData({
+        prediction,
+        answers,
+        consent: consentGiven,
       });
 
-      const result = await res.json();
-
-      if (!result.success) {
+      if (!result.success || !result.submission) {
         toast.error(result.error || "Submission failed.");
         setIsSubmitting(false);
         setStep('beliefs');
