@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Exam Stress Triangle Lab</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#dfd6f4", "primary-container": "#4057ff", "surface-tint": "#2e46f1", "primary-fixed": "#dfe0ff", "on-primary": "#ffffff", "tertiary-fixed": "#ccf15a", "on-tertiary-container": "#d8fe65", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#f5eeff", "primary-fixed-dim": "#bcc2ff", "outline-variant": "#c5c5d9", "surface-container-high": "#ede4ff", "tertiary": "#485b00", "inverse-surface": "#322d44", "tertiary-fixed-dim": "#b0d440", "on-background": "#1d182e", "on-surface-variant": "#444656", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#ffb4a7", "on-tertiary-fixed": "#161e00", "surface-container-low": "#f8f1ff", "secondary": "#aa3526", "tertiary-container": "#5d7500", "on-tertiary": "#ffffff", "on-primary-container": "#efeeff", "on-secondary-fixed": "#410100", "surface-variant": "#e7defd", "secondary-fixed": "#ffdad4", "surface-container": "#f2ebff", "surface-bright": "#fdf7ff", "on-surface": "#1d182e", "surface": "#fdf7ff", "on-primary-fixed": "#000b62", "on-primary-fixed-variant": "#0025d7", "primary": "#1e39e7", "on-tertiary-fixed-variant": "#3c4d00", "outline": "#757688", "secondary-container": "#fe725d", "error": "#ba1a1a", "inverse-primary": "#bcc2ff", "background": "#fdf7ff", "on-secondary-container": "#6f0802", "surface-container-highest": "#e7defd", "on-secondary-fixed-variant": "#891d11", "on-error-container": "#93000a", "error-container": "#ffdad6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1.25rem", "space-md": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-tablet": "2rem", "margin": "1rem", "margin-desktop": "3.5rem", "gutter-desktop": "1.75rem", "space-xl": "2.5rem", "space-xs": "0.25rem" }, fontFamily: { "headline-lg-mobile": ["Space Grotesk"], "label-lg": ["Geist"], "body-lg": ["Geist"], "body-md": ["Geist"], "code-formula": ["Geist"], "headline-md": ["Space Grotesk"], "body-sm": ["Geist"], "headline-sm": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "label-md": ["Geist"], "headline-lg": ["Space Grotesk"], "stat-counter-mobile": ["Space Grotesk"], "display-hero": ["Space Grotesk"], "stat-counter": ["Space Grotesk"] }, fontSize: { "headline-lg-mobile": ["30px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }], "code-formula": ["15px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["26px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "headline-sm": ["20px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "600" }], "display-hero-mobile": ["38px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }], "stat-counter-mobile": ["44px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" }], "stat-counter": ["64px", { lineHeight: "68px", letterSpacing: "-0.04em", fontWeight: "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-tertiary-fixed selection:text-on-tertiary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><div class="relative flex items-center justify-center"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center p-0.5 overflow-hidden shadow-[2px_2px_0px_#1d182e]"><span class="material-symbols-outlined text-primary text-xl font-bold">change_history</span></div></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-none">Exam Stress Triangle</h1><span class="px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md leading-none">2026</span></div><span class="font-label-md text-label-md text-on-surface-variant truncate">Hypothesis</span></div></div><div class="flex items-center gap-space-xs shrink-0"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="whitespace-nowrap">n=412</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ml-1" src="https://lh3.googleusercontent.com/aida/AEtjO1W3syhjMrz6CpUxBWk8gfMzFYekefUT0sOPy02O-sXedw9fJKDoqbvH3YBjTRh1qbEhCfH3KAcWO8S3AMjtHli6y2AlbT0CFGdjSpWis5rdqAWPGQhlmypcy8qaMdQ2vdCYoiJeMKZUK7LJrwtWs0KkY9-TWTEjFlb7vsVmrwf3HldQebG4KLz46JKFxx9H_k12PwuH6JPOpxmhv_yN3LaxIRaF7k0IKBSC7wahJfly4x3NqsmShMVUkyM"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-10 gap-space-lg">
+<!-- 1. Hypothesis Header -->
+<section class="flex flex-col gap-space-xs mt-2">
+<div class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full bg-surface-variant text-on-surface shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold">Phase 01: Pre-Experiment Hypothesis</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mt-1">
+      Trust your instincts. Then meet the data.
+    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Before you answer any questions, record your intuition. In mathematical science, hypotheses are locked in prior to observation to prevent retrospective distortion and hindsight bias.
+    </p>
+<!-- Lab Protocol Badge Matrix -->
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-primary text-lg">science</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Methodology</span>
+<span class="font-code-formula text-code-formula text-on-surface font-semibold truncate">Bayesian A/B Prior</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-secondary text-lg">lock_clock</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Cohort Size</span>
+<span class="font-code-formula text-code-formula text-on-surface font-semibold truncate">N = 412 Verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Prediction Challenge 1: Single Strongest Vector -->
+<section class="flex flex-col gap-space-sm p-4 rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Predictive Vector I</span>
+<span class="font-code-formula text-body-sm text-on-surface-variant">arg max [r(X, E)]</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+      Which factor do you predict has the strongest association with elevated exam stress?
+    </h3>
+<div class="flex flex-col gap-2.5 pt-1" id="factor-selection-group">
+<!-- Card A: Procrastination -->
+<button class="factor-card text-left p-3.5 rounded-lg bg-surface-container-lowest transition-all duration-150 flex items-start gap-3 shadow-sm hover:shadow-md active:scale-[0.99]" data-factor="P" onclick="selectFactor('P')" type="button">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center shrink-0 font-headline-sm text-headline-sm shadow-sm">
+          P
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Procrastination (P)</span>
+<span class="factor-radio w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Late-night cramming, intentional avoidance &amp; task displacement cycles.
+          </p>
+</div>
+</button>
+<!-- Card B: Sleep Deficit (Pre-selected as specified) -->
+<button class="factor-card is-selected text-left p-3.5 rounded-lg bg-surface-container-high transition-all duration-150 flex items-start gap-3 shadow-md active:scale-[0.99]" data-factor="S" onclick="selectFactor('S')" type="button">
+<div class="w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0 font-headline-sm text-headline-sm shadow-sm">
+          S
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Sleep Deprivation (S)</span>
+<span class="factor-radio w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Chronic sleep debt (&lt;5.5h avg), circadian disruption &amp; REM deficit.
+          </p>
+</div>
+</button>
+<!-- Card C: Social & Family Pressure -->
+<button class="factor-card text-left p-3.5 rounded-lg bg-surface-container-lowest transition-all duration-150 flex items-start gap-3 shadow-sm hover:shadow-md active:scale-[0.99]" data-factor="F" onclick="selectFactor('F')" type="button">
+<div class="w-8 h-8 rounded-lg bg-surface-dim text-on-surface flex items-center justify-center shrink-0 font-headline-sm text-headline-sm shadow-sm">
+          F
+        </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Social &amp; Family Pressure (F)</span>
+<span class="factor-radio w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            High parental expectations, cohort rank comparisons &amp; external surveillance.
+          </p>
+</div>
+</button>
+</div>
+</section>
+<!-- 3. Prediction Challenge 2: Three-Way Overlap Prediction -->
+<section class="flex flex-col gap-space-sm p-4 rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Predictive Vector II</span>
+<span class="font-code-formula text-body-sm text-on-surface-variant font-medium">|P ∩ S ∩ F| / |U|</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+      Approximately what percentage of students experience ALL THREE factors simultaneously?
+    </h3>
+<!-- Interactive Overlap Bento Preview -->
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest shadow-sm">
+<div class="relative w-24 h-24 shrink-0 flex items-center justify-center bg-surface-container-high rounded-lg overflow-hidden">
+<!-- Dynamic Mini Venn Diagram Visual -->
+<svg class="w-20 h-20 transition-all duration-200" id="venn-preview" viewbox="0 0 100 100">
+<!-- Circle P -->
+<circle class="transition-all duration-300" cx="40" cy="38" fill="#4057ff" fill-opacity="0.25" r="24"></circle>
+<!-- Circle S -->
+<circle class="transition-all duration-300" cx="60" cy="38" fill="#fe725d" fill-opacity="0.25" r="24"></circle>
+<!-- Circle F -->
+<circle class="transition-all duration-300" cx="50" cy="62" fill="#ccf15a" fill-opacity="0.35" r="24"></circle>
+<!-- Dynamic Center Intersection Bubble -->
+<circle class="transition-all duration-200" cx="50" cy="46" fill="#fe725d" fill-opacity="0.85" id="venn-center" r="10"></circle>
+<text fill="#ffffff" font-size="8" font-weight="700" id="venn-label" text-anchor="middle" x="50" y="49">38%</text>
+</svg>
+</div>
+<div class="flex flex-col justify-center min-w-0">
+<span class="font-label-md text-label-md text-on-surface-variant">Estimated Overlap Rate</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-stat-counter-mobile text-stat-counter-mobile text-on-surface font-bold leading-none" id="slider-display">
+            38%
+          </span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold" id="range-tier-tag">
+            Moderate
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Formula: <span class="font-code-formula text-primary">n(P ∩ S ∩ F) ≈ <span id="student-count-display">156</span>/412</span>
+</span>
+</div>
+</div>
+<!-- Custom Tactile Slider -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="relative flex items-center">
+<input class="w-full h-3 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary focus:outline-none" id="overlap-slider" max="100" min="0" oninput="handleSliderChange(this.value)" step="1" type="range" value="38"/>
+</div>
+<!-- Qualitative Segment Anchors -->
+<div class="grid grid-cols-4 gap-1 text-center font-label-md text-label-md text-on-surface-variant pt-1">
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container-high transition" onclick="setSliderPreset(10)" type="button">0% Rare</button>
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container-high transition" onclick="setSliderPreset(30)" type="button">25% Mod</button>
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container-high transition" onclick="setSliderPreset(55)" type="button">50% High</button>
+<button class="p-1 rounded bg-surface-container-low hover:bg-surface-container-high transition" onclick="setSliderPreset(85)" type="button">75%+ Extr</button>
+</div>
+</div>
+</section>
+<!-- 4. Prediction Challenge 3: Propositional Logic Hypothesis -->
+<section class="flex flex-col gap-space-sm p-4 rounded-xl bg-surface-container shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-tertiary font-bold uppercase tracking-wider">Predictive Vector III</span>
+<span class="font-code-formula text-body-sm text-on-surface-variant font-medium">S → E Truth Claim</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+      Proposition: "If a student experiences poor sleep, they will ALWAYS report elevated stress."
+    </h3>
+<div class="p-3 rounded-lg bg-surface-container-lowest flex items-center justify-between shadow-sm">
+<span class="font-code-formula text-code-formula text-primary font-semibold">Formal Hypothesis:</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-code-formula text-body-sm font-semibold">
+        ∀x (S(x) → E(x))
+      </span>
+</div>
+<!-- Binary Propositional Selectors -->
+<div class="grid grid-cols-1 gap-2.5 pt-1" id="logic-selection-group">
+<!-- Option A -->
+<button class="logic-pill p-3.5 rounded-lg bg-surface-container-lowest text-left transition-all duration-150 flex items-center justify-between shadow-sm hover:shadow-md active:scale-[0.99]" data-logic="true" onclick="selectLogic('true')" type="button">
+<div class="flex flex-col min-w-0 pr-2">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Likely True (Universal Law)</span>
+<span class="font-code-formula text-label-md text-tertiary">∀x</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Lack of physiological recovery inevitably triggers stress pathways.
+          </span>
+</div>
+<span class="logic-radio w-5 h-5 rounded-full bg-surface-container-high shrink-0 flex items-center justify-center"></span>
+</button>
+<!-- Option B (Selected by default) -->
+<button class="logic-pill is-selected p-3.5 rounded-lg bg-surface-container-high text-left transition-all duration-150 flex items-center justify-between shadow-md active:scale-[0.99]" data-logic="counter" onclick="selectLogic('counter')" type="button">
+<div class="flex flex-col min-w-0 pr-2">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Has Counterexamples</span>
+<span class="font-code-formula text-label-md text-secondary">∃x: S ∧ ¬E</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            High resilience, stoic coping, or low stakes can decouple sleep from exam anxiety.
+          </span>
+</div>
+<span class="logic-radio w-5 h-5 rounded-full bg-primary text-on-primary shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+</button>
+</div>
+</section>
+<!-- 5. Commitment & Confirmation Section -->
+<section class="flex flex-col gap-3 mt-1">
+<div class="flex items-center justify-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg text-secondary">lock</span>
+<span class="font-label-md text-label-md font-semibold tracking-wide uppercase">Predictions locked. Reality incoming.</span>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full min-h-[52px] py-3.5 px-6 rounded-lg bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm font-bold tracking-tight shadow-md hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2.5" id="submit-prediction-btn" onclick="handleLockInCommitment()" type="button">
+<span class="material-symbols-outlined font-bold">lock_open</span>
+<span>Lock In My Prediction &amp; Begin</span>
+</button>
+<!-- Lab Validation Footer Note -->
+<p class="font-body-sm text-body-sm text-center text-on-surface-variant px-2">
+      Your theoretical intuition will be benchmarked against n=412 verified cohort responses in the Research Lab dashboard upon survey completion.
+    </p>
+</section>
+</div>
+<script>
+  let selectedFactor = 'S';
+  let overlapPercentage = 38;
+  let selectedLogic = 'counter';
+
+  function selectFactor(factorKey) {
+    selectedFactor = factorKey;
+    const cards = document.querySelectorAll('.factor-card');
+    cards.forEach(card => {
+      const isTarget = card.getAttribute('data-factor') === factorKey;
+      const radio = card.querySelector('.factor-radio');
+      
+      if (isTarget) {
+        card.classList.add('bg-surface-container-high', 'shadow-md');
+        card.classList.remove('bg-surface-container-lowest', 'shadow-sm');
+        radio.className = 'factor-radio w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center';
+        radio.innerHTML = '<span class="material-symbols-outlined text-sm font-bold">check</span>';
+      } else {
+        card.classList.remove('bg-surface-container-high', 'shadow-md');
+        card.classList.add('bg-surface-container-lowest', 'shadow-sm');
+        radio.className = 'factor-radio w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center';
+        radio.innerHTML = '';
+      }
+    });
+  }
+
+  function handleSliderChange(val) {
+    overlapPercentage = parseInt(val, 10);
+    const display = document.getElementById('slider-display');
+    const studentCount = document.getElementById('student-count-display');
+    const tierTag = document.getElementById('range-tier-tag');
+    const centerCircle = document.getElementById('venn-center');
+    const labelText = document.getElementById('venn-label');
+
+    if (display) display.textContent = val + '%';
+    if (labelText) labelText.textContent = val + '%';
+
+    // Calculate approximate cohort equivalent
+    const calculatedStudents = Math.round((overlapPercentage / 100) * 412);
+    if (studentCount) studentCount.textContent = calculatedStudents;
+
+    // Scale visual Venn intersection size
+    if (centerCircle) {
+      const radius = Math.max(4, Math.min(22, 6 + (overlapPercentage * 0.16)));
+      centerCircle.setAttribute('r', radius);
+    }
+
+    // Dynamic Qualitative Tagging
+    if (tierTag) {
+      if (overlapPercentage < 20) {
+        tierTag.textContent = 'Rare Sub-Cohort';
+        tierTag.className = 'px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold';
+      } else if (overlapPercentage < 45) {
+        tierTag.textContent = 'Moderate Overlap';
+        tierTag.className = 'px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md font-semibold';
+      } else if (overlapPercentage < 70) {
+        tierTag.textContent = 'High Density';
+        tierTag.className = 'px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md font-semibold';
+      } else {
+        tierTag.textContent = 'Extreme Epidemic';
+        tierTag.className = 'px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-semibold';
+      }
+    }
+  }
+
+  function setSliderPreset(val) {
+    const slider = document.getElementById('overlap-slider');
+    if (slider) {
+      slider.value = val;
+      handleSliderChange(val);
+    }
+  }
+
+  function selectLogic(logicVal) {
+    selectedLogic = logicVal;
+    const pills = document.querySelectorAll('.logic-pill');
+    pills.forEach(pill => {
+      const isTarget = pill.getAttribute('data-logic') === logicVal;
+      const radio = pill.querySelector('.logic-radio');
+
+      if (isTarget) {
+        pill.classList.add('bg-surface-container-high', 'shadow-md');
+        pill.classList.remove('bg-surface-container-lowest', 'shadow-sm');
+        radio.className = 'logic-radio w-5 h-5 rounded-full bg-primary text-on-primary shrink-0 flex items-center justify-center';
+        radio.innerHTML = '<span class="material-symbols-outlined text-sm font-bold">check</span>';
+      } else {
+        pill.classList.remove('bg-surface-container-high', 'shadow-md');
+        pill.classList.add('bg-surface-container-lowest', 'shadow-sm');
+        radio.className = 'logic-radio w-5 h-5 rounded-full bg-surface-container-high shrink-0 flex items-center justify-center';
+        radio.innerHTML = '';
+      }
+    });
+  }
+
+  function handleLockInCommitment() {
+    const btn = document.getElementById('submit-prediction-btn');
+    if (!btn) return;
+
+    btn.disabled = true;
+    btn.innerHTML = `
+      <span class="material-symbols-outlined animate-spin text-lg">sync</span>
+      <span>Hashing Hypothesis Prior...</span>
+    `;
+
+    setTimeout(() => {
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-lg">check_circle</span>
+        <span>Hypothesis Locked &amp; Anchored</span>
+      `;
+      btn.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+      btn.classList.add('bg-tertiary-fixed', 'text-on-tertiary-fixed');
+
+      // Trigger navigation event or transition if within multi-step shell
+      const surveyNavLink = document.querySelector('a[data-path="survey"]');
+      if (surveyNavLink) {
+        surveyNavLink.click();
+      }
+    }, 750);
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="home" href="#"><span class="material-symbols-outlined text-2xl">dashboard</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 transition-colors text-primary font-semibold" data-path="hypothesis" href="#"><span class="material-symbols-outlined text-2xl">psychology_alt</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Hypothesis</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="survey" href="#"><span class="material-symbols-outlined text-2xl">fact_check</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Survey</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="lab" href="#"><span class="material-symbols-outlined text-2xl">science</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Lab</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="sim" href="#"><span class="material-symbols-outlined text-2xl">tune</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Sim</span></a></div></nav></body></html>

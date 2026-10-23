@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Exam Stress Triangle Lab</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#dfd6f4", "primary-container": "#4057ff", "surface-tint": "#2e46f1", "primary-fixed": "#dfe0ff", "on-primary": "#ffffff", "tertiary-fixed": "#ccf15a", "on-tertiary-container": "#d8fe65", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#f5eeff", "primary-fixed-dim": "#bcc2ff", "outline-variant": "#c5c5d9", "surface-container-high": "#ede4ff", "tertiary": "#485b00", "inverse-surface": "#322d44", "tertiary-fixed-dim": "#b0d440", "on-background": "#1d182e", "on-surface-variant": "#444656", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#ffb4a7", "on-tertiary-fixed": "#161e00", "surface-container-low": "#f8f1ff", "secondary": "#aa3526", "tertiary-container": "#5d7500", "on-tertiary": "#ffffff", "on-primary-container": "#efeeff", "on-secondary-fixed": "#410100", "surface-variant": "#e7defd", "secondary-fixed": "#ffdad4", "surface-container": "#f2ebff", "surface-bright": "#fdf7ff", "on-surface": "#1d182e", "surface": "#fdf7ff", "on-primary-fixed": "#000b62", "on-primary-fixed-variant": "#0025d7", "primary": "#1e39e7", "on-tertiary-fixed-variant": "#3c4d00", "outline": "#757688", "secondary-container": "#fe725d", "error": "#ba1a1a", "inverse-primary": "#bcc2ff", "background": "#fdf7ff", "on-secondary-container": "#6f0802", "surface-container-highest": "#e7defd", "on-secondary-fixed-variant": "#891d11", "on-error-container": "#93000a", "error-container": "#ffdad6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1.25rem", "space-md": "1rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "margin-tablet": "2rem", "margin": "1rem", "margin-desktop": "3.5rem", "gutter-desktop": "1.75rem", "space-xl": "2.5rem", "space-xs": "0.25rem" }, fontFamily: { "headline-lg-mobile": ["Space Grotesk"], "label-lg": ["Geist"], "body-lg": ["Geist"], "body-md": ["Geist"], "code-formula": ["Geist"], "headline-md": ["Space Grotesk"], "body-sm": ["Geist"], "headline-sm": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "label-md": ["Geist"], "headline-lg": ["Space Grotesk"], "stat-counter-mobile": ["Space Grotesk"], "display-hero": ["Space Grotesk"], "stat-counter": ["Space Grotesk"] }, fontSize: { "headline-lg-mobile": ["30px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-lg": ["14px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "600" }], "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }], "code-formula": ["15px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["26px", { lineHeight: "32px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }], "headline-sm": ["20px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "600" }], "display-hero-mobile": ["38px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "headline-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }], "stat-counter-mobile": ["44px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" }], "stat-counter": ["64px", { lineHeight: "68px", letterSpacing: "-0.04em", fontWeight: "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; min-height: 100%; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-tertiary-fixed selection:text-on-tertiary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><div class="relative flex items-center justify-center"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center p-0.5 overflow-hidden shadow-[2px_2px_0px_#1d182e]"><span class="material-symbols-outlined text-primary text-xl font-bold">change_history</span></div></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-1.5"><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-none">Exam Stress Triangle</h1><span class="px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md leading-none">2026</span></div><span class="font-label-md text-label-md text-on-surface-variant truncate">Home</span></div></div><div class="flex items-center gap-space-xs shrink-0"><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md text-label-md"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="whitespace-nowrap">n=412</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ml-1" src="https://lh3.googleusercontent.com/aida/AEtjO1W3syhjMrz6CpUxBWk8gfMzFYekefUT0sOPy02O-sXedw9fJKDoqbvH3YBjTRh1qbEhCfH3KAcWO8S3AMjtHli6y2AlbT0CFGdjSpWis5rdqAWPGQhlmypcy8qaMdQ2vdCYoiJeMKZUK7LJrwtWs0KkY9-TWTEjFlb7vsVmrwf3HldQebG4KLz46JKFxx9H_k12PwuH6JPOpxmhv_yN3LaxIRaF7k0IKBSC7wahJfly4x3NqsmShMVUkyM"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-10 gap-space-lg">
+<!-- 1. EXPRESSIVE HERO SECTION -->
+<section class="flex flex-col items-center text-center pt-space-md gap-space-sm">
+<!-- Eyebrow Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-md text-label-md text-on-surface tracking-wide">University Mathematics Experimental Project</span>
+</div>
+<!-- Main Headline with highlight tape -->
+<div class="relative mt-1">
+<div class="absolute -inset-1 bg-tertiary-fixed/60 transform -rotate-1 rounded-lg"></div>
+<h1 class="relative font-display-hero-mobile text-display-hero-mobile text-on-background tracking-tight uppercase leading-none">
+        Exam Stress.<br/>Let's Decode It.
+      </h1>
+</div>
+<!-- Supporting & Subtitle -->
+<p class="font-headline-sm text-headline-sm text-on-surface mt-1">
+      We all have theories about exam stress.<br/>
+<span class="text-primary-container">Let's see what data reveals.</span>
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto mt-0.5">
+      Three factors. Hundreds of permutations. One interactive sandbox investigating procrastination, sleep, social pressure, and the math in their overlap.
+    </p>
+<!-- Interactive Interactive Venn Graphic Bento Card -->
+<div class="w-full mt-space-sm bg-surface-container-lowest rounded-xl p-space-md shadow-md relative overflow-hidden flex flex-col items-center">
+<!-- Live Indicator Pin -->
+<div class="w-full flex items-center justify-between pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary-container text-lg">science</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold tracking-wide">THE TRIPLE OVERLAP</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+          Live Model
+        </span>
+</div>
+<!-- Venn SVG Diagram Container -->
+<div class="relative w-full max-w-[280px] h-[220px] flex items-center justify-center select-none my-1">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 300 240">
+<defs>
+<filter height="140%" id="glow-center" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<fecomposite in="SourceGraphic" in2="blur" operator="over"></fecomposite>
+</filter>
+</defs>
+<!-- Set P: Procrastination (Electric Blue) -->
+<circle class="transition-all duration-300 hover:fill-opacity-50 cursor-pointer" cx="115" cy="95" fill="#4057ff" fill-opacity="0.38" r="68"></circle>
+<!-- Set S: Sleep Deficit (Tangerine Coral) -->
+<circle class="transition-all duration-300 hover:fill-opacity-50 cursor-pointer" cx="185" cy="95" fill="#fe725d" fill-opacity="0.38" r="68"></circle>
+<!-- Set F: Pressure / Family (Acid Lime / Chartreuse) -->
+<circle class="transition-all duration-300 hover:fill-opacity-60 cursor-pointer" cx="150" cy="155" fill="#ccf15a" fill-opacity="0.45" r="68"></circle>
+<!-- Center Intersection Node Pulse -->
+<circle class="animate-pulse" cx="150" cy="120" fill="#1d182e" filter="url(#glow-center)" r="14"></circle>
+<circle cx="150" cy="120" fill="#ffffff" r="6"></circle>
+<!-- Circle Labels -->
+<text fill="#1e39e7" font-family="Space Grotesk" font-size="16" font-weight="700" x="80" y="70">P</text>
+<text fill="#aa3526" font-family="Space Grotesk" font-size="16" font-weight="700" x="215" y="70">S</text>
+<text fill="#485b00" font-family="Space Grotesk" font-size="16" font-weight="700" x="150" y="210">F</text>
+</svg>
+<!-- Intersection Formula Floating Pill Badge -->
+<div class="absolute bottom-2 bg-on-background text-surface rounded-full px-3 py-1 flex items-center gap-1.5 shadow-md">
+<span class="font-code-formula text-code-formula text-tertiary-fixed font-semibold tracking-wider">P ∩ S ∩ F</span>
+<span class="text-[11px] font-label-md text-surface-dim font-medium tracking-normal">• 34.6% All 3</span>
+</div>
+</div>
+<!-- Venn Helper Caption -->
+<div class="w-full flex items-center justify-between pt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">touch_app</span> Tap circles to inspect sets
+        </span>
+<span class="font-label-md text-label-md text-primary font-semibold">∪ Universal n=412</span>
+</div>
+</div>
+<!-- CTA Stack -->
+<div class="flex flex-col w-full gap-2.5 mt-space-sm">
+<a class="w-full h-12 bg-primary-container text-on-primary rounded-lg flex items-center justify-center gap-2 font-label-lg text-label-lg shadow-md active:translate-y-0.5 transition-all" data-path="hypothesis" href="#">
+<span>Start the Experiment</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</a>
+<a class="w-full h-12 bg-surface-container-high text-on-surface rounded-lg flex items-center justify-center gap-2 font-label-lg text-label-lg shadow-sm active:bg-surface-variant transition-colors" data-path="lab" href="#">
+<span class="material-symbols-outlined text-xl text-primary">science</span>
+<span>Explore Research Lab</span>
+</a>
+</div>
+</section>
+<!-- 2. THREE BOLD COLOUR-CODED FACTOR TILES (BENTO STYLE) -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-xl">category</span>
+        The 3 Sets of the Triangle
+      </h2>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Axioms</span>
+</div>
+<!-- Factor 1: Electric Blue -->
+<div class="bg-primary-container text-on-primary rounded-xl p-space-md shadow-md flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-2xl">pending_actions</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm leading-tight text-on-primary">The Procrastination Trap</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary-container font-headline-sm text-headline-sm font-bold">Set P</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary-container mt-1">
+          Delaying revision until panic sets in. Habitual deferral triggering exponential cognitive overload 48 hours pre-exam.
+        </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/15 font-label-md text-label-md text-on-primary tracking-wide">
+            Cohort: 68.4%
+          </span>
+<span class="font-label-md text-label-md text-on-primary-container/80">• 282 students</span>
+</div>
+</div>
+</div>
+<!-- Factor 2: Tangerine Coral -->
+<div class="bg-secondary-container text-on-secondary-container rounded-xl p-space-md shadow-md flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-on-secondary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-2xl">bedtime</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm leading-tight text-on-secondary-container">The Sleep Spiral</h3>
+<span class="px-2 py-0.5 rounded-full bg-on-secondary-container text-surface-container-lowest font-headline-sm text-headline-sm font-bold">Set S</span>
+</div>
+<p class="font-body-md text-body-md text-on-secondary-container mt-1">
+          Fewer than 6 hours sleep or erratic circadian shifts. Impairs working memory consolidation and rapid spatial recall.
+        </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 rounded bg-on-secondary-container/15 font-label-md text-label-md text-on-secondary-container tracking-wide">
+            Cohort: 73.1%
+          </span>
+<span class="font-label-md text-label-md text-on-secondary-container/80">• 301 students</span>
+</div>
+</div>
+</div>
+<!-- Factor 3: Lavender Card -->
+<div class="bg-surface-container-high text-on-surface rounded-xl p-space-md shadow-md flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-2xl">groups</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm leading-tight text-on-surface">The Pressure Bubble</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-headline-sm text-headline-sm font-bold">Set F</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Family milestones, peer comparisons, and self-worth tied strictly to grade percentiles.
+        </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-md text-label-md text-on-surface tracking-wide">
+            Cohort: 59.5%
+          </span>
+<span class="font-label-md text-label-md text-on-surface-variant">• 245 students</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. HOW THE EXPERIMENT WORKS FLOW -->
+<section class="flex flex-col gap-space-sm bg-surface-container-low rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">How the Lab Works</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Three quick stages from intuition to formal proof</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-md text-label-md">3 Steps</span>
+</div>
+<div class="flex flex-col gap-2.5 mt-1">
+<!-- Step 1 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest rounded-lg p-3 shadow-xs">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+          1
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Lock Your Hypothesis</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Predict what percentage of high-stress students inhabit the triple intersection before viewing any evidence.
+          </span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest rounded-lg p-3 shadow-xs">
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+          2
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Play the 4-Round Survey</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Answer fast micro-scenarios to position your own study habits within Set P, S, or F.
+          </span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-3 bg-surface-container-lowest rounded-lg p-3 shadow-xs">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline-sm text-headline-sm shrink-0">
+          3
+        </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface">Unlock the Set Theory Lab</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Compute real inclusion-exclusion metrics and propositional truth-tables against empirical cohort data.
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. ILLUSTRATIVE PREVIEW BANNER -->
+<section class="bg-surface-container-high rounded-xl p-space-md shadow-md flex flex-col gap-2 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Formula Preview</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Principle of Inclusion-Exclusion</span>
+</div>
+<!-- Math Display Tile -->
+<div class="bg-surface-container-lowest rounded-lg p-3 shadow-sm flex flex-col gap-1">
+<div class="font-code-formula text-code-formula text-on-surface font-semibold overflow-x-auto whitespace-nowrap py-1">
+        |P ∪ S ∪ F| = |P| + |S| + |F| - Σ(Intersections) + |P ∩ S ∩ F|
+      </div>
+<div class="flex items-baseline justify-between pt-1">
+<span class="font-stat-counter-mobile text-stat-counter-mobile text-primary leading-none">89.2%</span>
+<span class="font-label-md text-label-md text-on-surface-variant text-right">
+          Total Affected Students<br/><strong class="text-on-surface">367 of 412 cohort</strong>
+</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface italic mt-0.5">
+      “Three circles. Surprisingly many combinations. The empirical data gets the final word.”
+    </p>
+<!-- Visual Card Footprint with student avatars -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex -space-x-2">
+<img class="w-7 h-7 rounded-full object-cover shadow-xs" data-alt="Close up photographic portrait of an undergraduate mathematics student studying late with notebooks in a sunlit university library warm editorial tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2MjXhwdberZdtlPgxryV4EvwySL_X82S099IqXyqVNuNOxFOQ7Tczf9YevyoqbAHRbhGr_sfHJw_0BpqlKHfLGWqeITizBN5vTuqq9OF3uHP1gO5YTctXDXxsEXL69rWQjb_WVxVpECyzvrhiJGdqnM6n5rraSQwN_xDI6A5ULVvjlmbv2QNcACQ8TsWlH16UAHhOrwKQ_Y-7ZQVmwxUzaHTj4INuB36bSoNBbJ0I4idO4GvWj3ICnw"/>
+<img class="w-7 h-7 rounded-full object-cover shadow-xs" data-alt="Portrait of an engineering student analyzing charts on a laptop screen in a campus common space soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAicDVzdegwrryp0jH5vvsiGsUbOD1i3qw-1t8tCFz0PAaMnMpYfQz8hn-ZToapJP06dTr0L3KqnTNWVLfeqcCT0HWq0FrdxQRb_Va5LVl8EeyfCrPb3wfoToRiuk5dQaIF0E_Ioi9RfYyOC1qnbuSElrZv9G8oEHDs_OjjDBdWn2sanElx6AZRHynhFsxuD5L1J3ISLCpF55UoZFWVSid-nH1Lt5k_Aof_EAivzYBKJuFLyXbwFGcyLA"/>
+<img class="w-7 h-7 rounded-full object-cover shadow-xs" data-alt="Student with glasses looking intently at revision flashcards with vibrant highlighters warm cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQvVSLAOrOPdnnN4lxmyU-pbTjuBS0bwCAcl9Jn9RLPEjCQABXncHy0J4y8mb3g_7w6sSCZ-gMH_sVVAjTWgPFZl5Z0KGEifyGUst8EprbJ0G_EHMFQq5IWnvfFX3zcUgtKsITbpZo87Kz9Jp9sYr_BaejKjMFR_mvT3QVLcLIWtQ7Uu1fQSEo_WW0adEfFwTtQT2EW5pbAA2stZ7VOmB1dsD9BKuQCcgd7AkOpWXeLPYGrl_xv8c2kQ"/>
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface text-[10px] font-bold flex items-center justify-center shadow-xs">
+          +409
+        </div>
+</div>
+<a class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1 hover:underline" data-path="hypothesis" href="#">
+        Make your guess <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- 5. ETHICAL & MATHEMATICAL NOTICE -->
+<footer class="flex flex-col gap-2 pt-2 text-center items-center">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-base">verified</span>
+<span class="font-label-md text-label-md font-semibold uppercase tracking-wider">Academic Sandbox Notice</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs leading-relaxed">
+      Self-Reported Experimental Learning Project. Not a clinical or psychological diagnostic instrument. Designed to teach Discrete Mathematics, Set Theory, and Propositional Boolean Logic through real student cohort datasets.
+    </p>
+<div class="flex items-center gap-4 mt-1 font-label-md text-label-md text-primary font-medium">
+<a class="hover:underline" href="#">Methodology (PDF)</a>
+<span>•</span>
+<a class="hover:underline" href="#">Raw Anonymized CSV</a>
+<span>•</span>
+<a class="hover:underline" href="#">Proof Tree</a>
+</div>
+<span class="font-label-md text-label-md text-outline mt-1">© 2026 Department of Discrete Mathematics &amp; Cognitive Ergonomics</span>
+</footer>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 transition-colors text-primary font-semibold" data-path="home" href="#"><span class="material-symbols-outlined text-2xl">dashboard</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="hypothesis" href="#"><span class="material-symbols-outlined text-2xl">psychology_alt</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Hypothesis</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="survey" href="#"><span class="material-symbols-outlined text-2xl">fact_check</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Survey</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="lab" href="#"><span class="material-symbols-outlined text-2xl">science</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Lab</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="sim" href="#"><span class="material-symbols-outlined text-2xl">tune</span><span class="font-label-md text-label-md mt-0.5 tracking-tight">Sim</span></a></div></nav></body></html>
