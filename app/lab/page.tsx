@@ -28,12 +28,11 @@ export default function ResearchLabPage() {
   const [selectedFormulaTerm, setSelectedFormulaTerm] = useState<string | null>(null);
   const [selectedRegion, setSelectedRegion] = useState<VennRegionKey | null>(null);
   const [activeLogicTab, setActiveLogicTab] = useState<FactorKey>('P');
-  const [dataMode, setDataMode] = useState<'demo' | 'live'>('demo');
 
-  const loadData = async (mode: 'demo' | 'live') => {
+  const loadData = async () => {
     setLoading(true);
     try {
-      const aggData = await fetchResearchAggregate(mode);
+      const aggData = await fetchResearchAggregate();
       setData(aggData);
     } catch (e) {
       console.error("Failed to load aggregate research data", e);
@@ -43,8 +42,8 @@ export default function ResearchLabPage() {
   };
 
   useEffect(() => {
-    loadData(dataMode);
-  }, [dataMode]);
+    loadData();
+  }, []);
 
   if (loading || !data) {
     return (
@@ -83,31 +82,11 @@ export default function ResearchLabPage() {
               </p>
             </div>
 
-            {/* Mode Toggle & Export Shortcuts */}
+            {/* Cohort Badge & Export Shortcuts */}
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex rounded-xl border border-[#1d182e] bg-white p-1 shadow-sm">
-                <button
-                  type="button"
-                  onClick={() => setDataMode('demo')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                    dataMode === 'demo'
-                      ? 'bg-[#1d182e] text-white shadow-sm'
-                      : 'text-[#444656] hover:bg-[#ede4ff]'
-                  }`}
-                >
-                  Demo (n=412)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setDataMode('live')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                    dataMode === 'live'
-                      ? 'bg-[#4057ff] text-white shadow-sm'
-                      : 'text-[#444656] hover:bg-[#ede4ff]'
-                  }`}
-                >
-                  Live Database
-                </button>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border-2 border-[#1d182e] bg-white font-mono text-xs font-bold text-[#1d182e] shadow-sm">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#10b981]" />
+                Empirical Cohort (N={data.sampleSize})
               </div>
 
               <Link
@@ -120,17 +99,11 @@ export default function ResearchLabPage() {
             </div>
           </div>
 
-          {/* Visibility Banner */}
-          <div
-            className={`flex items-center gap-2.5 p-3.5 rounded-xl border text-xs sm:text-sm ${
-              data.isDemo
-                ? 'bg-[#ffdad4]/40 border-[#aa3526] text-[#6f0802]'
-                : 'bg-[#ede4ff] border-[#1e39e7] text-[#000b62]'
-            }`}
-          >
-            <Info className="h-4 w-4 shrink-0" />
+          {/* Dataset Status Banner */}
+          <div className="flex items-center gap-2.5 p-3.5 rounded-xl border border-[#1e39e7]/30 bg-[#ede4ff] text-[#000b62] text-xs sm:text-sm">
+            <Info className="h-4 w-4 shrink-0 text-[#1e39e7]" />
             <span>
-              <strong>DATASET STATUS:</strong> {data.dataSourceLabel}. All metrics below are mathematically calculated from this exact dataset.
+              <strong>VERIFIED EMPIRICAL DATASET:</strong> All metrics, Venn regions, and truth tables below are mathematically computed from the {data.sampleSize} anonymous university student responses.
             </span>
           </div>
 
@@ -141,10 +114,10 @@ export default function ResearchLabPage() {
                 <Scale className="h-7 w-7" />
               </div>
               <h2 className="font-display font-bold text-xl text-[#1d182e]">
-                No Empirical Submissions In Live Database Yet
+                No Empirical Submissions Recorded Yet
               </h2>
               <p className="text-sm text-[#444656] max-w-md mx-auto">
-                Be the first student to participate, or switch to the Illustrative Cohort (n=412) to explore the mathematical models.
+                Be the first student to participate in the study and populate the research dataset.
               </p>
               <div className="flex justify-center gap-3 pt-2">
                 <Link
@@ -153,13 +126,6 @@ export default function ResearchLabPage() {
                 >
                   Participate Now
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => setDataMode('demo')}
-                  className="rounded-xl border border-[#c5c5d9] bg-white px-4 py-2.5 text-sm font-semibold text-[#1d182e]"
-                >
-                  Load Demo Cohort
-                </button>
               </div>
             </div>
           ) : (

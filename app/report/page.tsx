@@ -23,7 +23,7 @@ export default function ReportPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchResearchAggregate("demo")
+    fetchResearchAggregate()
       .then((d) => setData(d))
       .catch((e) => console.error(e))
       .finally(() => setLoading(false));

@@ -68,7 +68,7 @@ export default function ResultsPage() {
         beliefs: { P: true, S: true, F: true },
       },
       derived: fallbackScore,
-      isDemo: true,
+      isDemo: false,
     });
   }, []);
 

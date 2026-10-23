@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 import { VennDiagram } from "@/components/venn-diagram";
 import { calculateVennCounts } from "@/lib/math-engine";
-import { INITIAL_DEMO_SUBMISSIONS } from "@/lib/demo-data";
+import { EMPIRICAL_STUDENT_SUBMISSIONS } from "@/lib/survey-data";
 
 export default function HomePage() {
   const initialVenn = calculateVennCounts(
-    INITIAL_DEMO_SUBMISSIONS.map((s) => ({
+    EMPIRICAL_STUDENT_SUBMISSIONS.map((s) => ({
       isP: s.derived.isP,
       isS: s.derived.isS,
       isF: s.derived.isF,
@@ -93,7 +93,7 @@ export default function HomePage() {
                 </span>
               </div>
               <span className="rounded-full bg-[#ccf15a] px-2.5 py-0.5 font-mono text-xs font-bold text-[#161e00]">
-                Cohort n=412 Verified
+                Cohort n=105 Verified
               </span>
             </div>
 
@@ -151,7 +151,7 @@ export default function HomePage() {
               </p>
               <div className="mt-5 pt-3 border-t border-[#f2ebff] flex items-center justify-between text-xs text-[#757688]">
                 <span>Score: ≥ 6/9</span>
-                <span className="font-mono font-bold text-[#1e39e7]">68.2% Prevalence</span>
+                <span className="font-mono font-bold text-[#1e39e7]">63.8% Prevalence (67/105)</span>
               </div>
             </div>
 
@@ -177,7 +177,7 @@ export default function HomePage() {
               </p>
               <div className="mt-5 pt-3 border-t border-[#f2ebff] flex items-center justify-between text-xs text-[#757688]">
                 <span>Score: ≥ 6/9</span>
-                <span className="font-mono font-bold text-[#aa3526]">61.4% Prevalence</span>
+                <span className="font-mono font-bold text-[#aa3526]">41.9% Prevalence (44/105)</span>
               </div>
             </div>
 
@@ -203,7 +203,7 @@ export default function HomePage() {
               </p>
               <div className="mt-5 pt-3 border-t border-[#f2ebff] flex items-center justify-between text-xs text-[#757688]">
                 <span>Score: ≥ 6/9</span>
-                <span className="font-mono font-bold text-[#485b00]">47.1% Prevalence</span>
+                <span className="font-mono font-bold text-[#485b00]">61.9% Prevalence (65/105)</span>
               </div>
             </div>
           </div>

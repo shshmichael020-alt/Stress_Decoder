@@ -16,6 +16,20 @@ import { SimulatorInputs, computeSimulatorVenn } from "@/lib/math-engine";
 
 const PRESET_SCENARIOS: { name: string; description: string; inputs: SimulatorInputs }[] = [
   {
+    name: "Empirical Cohort (N=105)",
+    description: "Authentic university survey baseline: 67 Procrastination, 44 Sleep, 65 Pressure, 22 Triple Overlap.",
+    inputs: {
+      totalN: 105,
+      sizeP: 67,
+      sizeS: 44,
+      sizeF: 65,
+      interPS: 31,
+      interPF: 46,
+      interSF: 28,
+      psf: 22,
+    },
+  },
+  {
     name: "Balanced University Cohort",
     description: "Moderate overlapping pressure vectors typical of mid-semester exams.",
     inputs: {
@@ -55,20 +69,6 @@ const PRESET_SCENARIOS: { name: string; description: string; inputs: SimulatorIn
       interPF: 80,
       interSF: 145,
       psf: 75,
-    },
-  },
-  {
-    name: "Near-Disjoint Independence",
-    description: "Minimal intersection where factors act as isolated psychological stressors.",
-    inputs: {
-      totalN: 450,
-      sizeP: 120,
-      sizeS: 110,
-      sizeF: 100,
-      interPS: 20,
-      interPF: 15,
-      interSF: 15,
-      psf: 5,
     },
   },
 ];
@@ -174,20 +174,28 @@ export default function SimulatorPage() {
             </div>
 
             {/* Total Cohort Size */}
-            <div className="space-y-1.5 p-3 rounded-xl bg-[#fdf7ff] border border-[#c5c5d9]">
+            <div className="space-y-1.5 p-3.5 rounded-xl bg-[#fdf7ff] border border-[#c5c5d9]">
               <div className="flex justify-between items-center text-xs">
                 <span className="font-display font-bold text-[#1d182e]">
                   Total Population (N)
                 </span>
-                <span className="font-mono font-bold text-sm text-[#1e39e7]">
-                  {inputs.totalN} students
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <input
+                    type="number"
+                    min="1"
+                    max="5000"
+                    value={inputs.totalN}
+                    onChange={(e) => handleInputChange("totalN", Number(e.target.value))}
+                    className="w-20 px-2 py-0.5 rounded border border-[#c5c5d9] bg-white font-mono text-sm font-bold text-[#1e39e7] text-right"
+                  />
+                  <span className="text-xs text-[#757688]">students</span>
+                </div>
               </div>
               <input
                 type="range"
-                min="100"
+                min="50"
                 max="1000"
-                step="10"
+                step="5"
                 value={inputs.totalN}
                 onChange={(e) => handleInputChange("totalN", Number(e.target.value))}
                 className="w-full h-2 bg-[#ede4ff] rounded appearance-none cursor-pointer accent-[#1e39e7]"
@@ -197,14 +205,21 @@ export default function SimulatorPage() {
             {/* Single Set Sizes */}
             <div className="space-y-3">
               <span className="font-mono text-xs font-bold text-[#757688] uppercase block">
-                Single Factor Cardinalities
+                Single Factor Cardinalities (Shrink / Expand Circles)
               </span>
 
               {/* |P| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#4057ff]/30">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#1e39e7]">|P| Procrastination</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.sizeP}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={inputs.totalN}
+                    value={inputs.sizeP}
+                    onChange={(e) => handleInputChange("sizeP", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#4057ff]/40 bg-[#fdf7ff] font-mono text-xs font-bold text-[#1e39e7] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -217,10 +232,17 @@ export default function SimulatorPage() {
               </div>
 
               {/* |S| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#fe725d]/30">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#aa3526]">|S| Sleep Deficit</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.sizeS}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={inputs.totalN}
+                    value={inputs.sizeS}
+                    onChange={(e) => handleInputChange("sizeS", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#fe725d]/40 bg-[#fdf7ff] font-mono text-xs font-bold text-[#aa3526] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -233,10 +255,17 @@ export default function SimulatorPage() {
               </div>
 
               {/* |F| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#485b00]/30">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#485b00]">|F| Social Pressure</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.sizeF}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={inputs.totalN}
+                    value={inputs.sizeF}
+                    onChange={(e) => handleInputChange("sizeF", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#485b00]/40 bg-[#fdf7ff] font-mono text-xs font-bold text-[#485b00] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -256,10 +285,17 @@ export default function SimulatorPage() {
               </span>
 
               {/* |P ∩ S| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#c5c5d9]">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#1d182e]">|P ∩ S| Procrastination &amp; Sleep</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.interPS}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={Math.min(inputs.sizeP, inputs.sizeS)}
+                    value={inputs.interPS}
+                    onChange={(e) => handleInputChange("interPS", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#c5c5d9] bg-[#fdf7ff] font-mono text-xs font-bold text-[#1d182e] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -272,10 +308,17 @@ export default function SimulatorPage() {
               </div>
 
               {/* |P ∩ F| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#c5c5d9]">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#1d182e]">|P ∩ F| Procrastination &amp; Pressure</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.interPF}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={Math.min(inputs.sizeP, inputs.sizeF)}
+                    value={inputs.interPF}
+                    onChange={(e) => handleInputChange("interPF", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#c5c5d9] bg-[#fdf7ff] font-mono text-xs font-bold text-[#1d182e] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -288,10 +331,17 @@ export default function SimulatorPage() {
               </div>
 
               {/* |S ∩ F| */}
-              <div className="space-y-1">
-                <div className="flex justify-between text-xs">
+              <div className="space-y-1.5 p-2.5 rounded-xl bg-white border border-[#c5c5d9]">
+                <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-[#1d182e]">|S ∩ F| Sleep &amp; Pressure</span>
-                  <span className="font-mono font-bold text-[#1d182e]">{inputs.interSF}</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max={Math.min(inputs.sizeS, inputs.sizeF)}
+                    value={inputs.interSF}
+                    onChange={(e) => handleInputChange("interSF", Number(e.target.value))}
+                    className="w-16 px-2 py-0.5 rounded border border-[#c5c5d9] bg-[#fdf7ff] font-mono text-xs font-bold text-[#1d182e] text-right"
+                  />
                 </div>
                 <input
                   type="range"
@@ -305,10 +355,17 @@ export default function SimulatorPage() {
             </div>
 
             {/* Triple Intersection */}
-            <div className="space-y-1 pt-2 border-t border-[#f2ebff]">
-              <div className="flex justify-between text-xs">
+            <div className="space-y-1.5 pt-2 border-t border-[#f2ebff]">
+              <div className="flex justify-between items-center text-xs">
                 <span className="font-bold text-[#fe725d]">|P ∩ S ∩ F| Central Triple Overlap</span>
-                <span className="font-mono font-bold text-base text-[#fe725d]">{inputs.psf}</span>
+                <input
+                  type="number"
+                  min="0"
+                  max={Math.min(inputs.interPS, inputs.interPF, inputs.interSF)}
+                  value={inputs.psf}
+                  onChange={(e) => handleInputChange("psf", Number(e.target.value))}
+                  className="w-16 px-2 py-0.5 rounded border border-[#fe725d]/40 bg-[#ffdad4]/30 font-mono text-xs font-bold text-[#fe725d] text-right"
+                />
               </div>
               <input
                 type="range"

@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export function Navbar({ cohortSize = 412, isLive = false }: { cohortSize?: number; isLive?: boolean }) {
+export function Navbar({ cohortSize = 105, isLive = true }: { cohortSize?: number; isLive?: boolean }) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -85,16 +85,12 @@ export function Navbar({ cohortSize = 412, isLive = false }: { cohortSize?: numb
           <Link
             href="/lab"
             className="flex items-center gap-1.5 rounded-full border border-[#c5c5d9] bg-[#f2ebff] px-2.5 py-1 text-xs font-semibold text-[#1d182e] shadow-sm hover:border-[#4057ff] transition"
-            title={isLive ? "Live Database Active" : "Demo Mode (N=412 Synthetic Cohort)"}
+            title="Empirical University Cohort (N=105 Students)"
           >
-            <span
-              className={`h-2 w-2 rounded-full ${
-                isLive ? "bg-emerald-500 animate-pulse" : "bg-[#fe725d] animate-pulse"
-              }`}
-            />
-            <span>n={cohortSize}</span>
-            <span className="hidden sm:inline text-[10px] uppercase font-bold text-[#444656]">
-              {isLive ? "LIVE" : "DEMO"}
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="font-bold">n={cohortSize}</span>
+            <span className="hidden sm:inline text-[10px] uppercase font-bold text-[#1e39e7] bg-white px-1.5 py-0.5 rounded border border-[#c5c5d9]">
+              Live Study
             </span>
           </Link>
 

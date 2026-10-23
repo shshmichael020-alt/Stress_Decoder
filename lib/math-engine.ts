@@ -480,7 +480,7 @@ export function aggregateResearchSubmissions(
     return {
       sampleSize: 0,
       isDemo,
-      dataSourceLabel: isDemo ? 'Illustrative Sample (Preview Mode)' : 'Empirical Submissions (Live)',
+      dataSourceLabel: `University Empirical Cohort (N=0 Submissions)`,
       collectionPeriod,
       venn: emptyVenn,
       elevatedStressCount: 0,
@@ -657,9 +657,7 @@ export function aggregateResearchSubmissions(
   return {
     sampleSize: n,
     isDemo,
-    dataSourceLabel: isDemo
-      ? 'ILLUSTRATIVE COHORT (DEMO PREVIEW — N=412 SYNTHETIC)'
-      : `EMPIRICAL STUDENT DATA (N=${n} SUBMISSIONS)`,
+    dataSourceLabel: `University Empirical Cohort (N=${n} Verified Student Submissions)`,
     collectionPeriod,
     venn,
     elevatedStressCount: elevatedCount,

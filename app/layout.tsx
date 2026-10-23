@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-[#fdf7ff] text-[#1d182e] selection:bg-[#ccf15a] selection:text-[#161e00]`}
       >
-        <Navbar cohortSize={412} />
+        <Navbar cohortSize={105} isLive={true} />
         <main className="flex-1">{children}</main>
         <Footer />
         <Toaster position="top-right" richColors />
